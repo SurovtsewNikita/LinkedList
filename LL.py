@@ -19,14 +19,23 @@ class LinkedList:
             current.next = new_node  # соеденяем список с новыйм нодом
 
     def reverse(self):
-        prev = None
+        prev = None  # временная переменная
+        current = self.head  # переменная с "головой"
+        while current:  # цикл для обхода всего списка
+            next_node = (
+                current.next
+            )  # временная переменная для запоминания след переменной
+            current.next = prev  # замена следующего элемента
+            prev = current  # временная переменная для соеденения
+            current = next_node  # замена для перехода на следующий элемент
+        self.head = prev  # завершение обратного списка
+
+    def print(self):
         current = self.head
         while current:
-            next_node = current.next
-            current.next = prev
-            prev = current
-            current = next_node
-        self.head = prev
+            print(current.value, end=" -> ")
+            current = current.next
+        print("None")
 
 
 linlist = LinkedList()
@@ -34,4 +43,7 @@ linlist.append(10)
 linlist.append(15)
 linlist.append(20)
 
+linlist.print()
+
 linlist.reverse()
+linlist.print()
