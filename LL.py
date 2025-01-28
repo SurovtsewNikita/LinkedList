@@ -42,6 +42,7 @@ linlist = LinkedList()
 linlist.append(10)
 linlist.append(15)
 linlist.append(20)
+linlist.append(25)
 
 linlist.print()
 
