@@ -18,8 +18,20 @@ class LinkedList:
                 current = current.next  # переставляем на следующий элемент
             current.next = new_node  # соеденяем список с новыйм нодом
 
+    def reverse(self):
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
+
 
 linlist = LinkedList()
 linlist.append(10)
 linlist.append(15)
 linlist.append(20)
+
+linlist.reverse()
